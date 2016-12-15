@@ -1,0 +1,6 @@
+*.exe
+*.wav
+*.o
+Default/
+Default/*
+Default/*/*
