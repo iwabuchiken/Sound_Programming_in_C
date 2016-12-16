@@ -2,3 +2,8 @@ pushd C:\WORKS_2\WS\Eclipse_Luna\C_SoundProg
 
 start gitk
 
+[console]
+C:\WORKS_2\WS\Eclipse_Neon\Sound_Programming_in_C\Debug\Sound_Programming_in_C.exe
+
+pushd C:\WORKS_2\WS\Eclipse_Neon\Sound_Programming_in_C\Debug
+Sound_Programming_in_C.exe

@@ -8,11 +8,50 @@
 #ifndef UTILS_H_
 #define UTILS_H_
 
+#ifndef TIME_H_
+#define TIME_H_
+#include <time.h>
+#endif
+
+#ifndef ASSERT_H_
+#define ASSERT_H_
+#include <assert.h>
+#endif
+
+#ifndef STRING_H_
+#define STRING_H_
+#include <string.h>
+#endif
+
+/****************************
+ *	@param time_label ---> char[14]
+ *
+ *	@return
+ *	20161217_0112 (13 + 1 = 14 length)
+ *
+ *****************************/
 char* get_Time_Label(char* time_label) {
+
+	//ref http://stackoverflow.com/questions/5141960/get-the-current-time-in-c
+	time_t rawtime;
+	struct tm * timeinfo;
+
+	time ( &rawtime );
+	timeinfo = localtime ( &rawtime );
+
+	sprintf(time_label, "%04d%02d%02d_%02d%02d%02d",
+//	sprintf(time_label, "[%04d%02d%02d_%02d%02d%02d]",
+//			timeinfo->tm_year,
+			timeinfo->tm_year + 1900,
+			timeinfo->tm_mon + 1,
+			timeinfo->tm_mday,
+			timeinfo->tm_hour,
+			timeinfo->tm_min,
+			timeinfo->tm_sec);
 
 //	char time_label[30];
 
-	sprintf(time_label, "%s", "2015-08");
+//	sprintf(time_label, "%s", "2015-08");
 
 	return time_label;
 
