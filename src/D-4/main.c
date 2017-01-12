@@ -69,7 +69,47 @@ void _test() {
 	char	time_label[14];
 	get_Time_Label(time_label);
 
-	sprintf(fname, "files\\test_2.%s.txt", time_label);
+	//test
+//	char* fname_format = "files\\test_2.%s.aaaaaaaaaaaaaaaaaaaaaaa.txt";
+	char* fname_format = "files\\test_2.%s.txt";
+
+	//debug
+//	printf("[%d] size of fname_format => %d\n", __LINE__, sizeof(fname_format));
+//	printf("[%d] size of fname_format => %d\n", __LINE__, sizeof(fname_format) / sizeof(char));
+
+	/****************************
+	 *
+	 * validate: file name less than (fname less time label)
+	 *
+	 *****************************/
+	//debug
+	//ref http://stackoverflow.com/questions/1838468/count-the-number-or-characters-in-the-string answered Dec 3 '09 at 8:29
+	int i =0;
+//	while (*(fname_format[i])) i++;	//=> invalid type argument of unary '*' (have 'int')
+	while ((fname_format[i])) i++;	//=>
+
+//	while (*(fname_format[i])) i++;
+//	while (*fname_format++) i++;
+
+	printf("[%d] fname_format => %d chars\n", __LINE__, i);
+
+	int len_fname = sizeof(fname) / sizeof(char);
+	int len_time_label = sizeof(time_label) / sizeof(char);
+
+	if (i + len_time_label + 1 > len_fname) {
+
+		printf("[%d] file name is more than %d; quitting...\n", __LINE__, len_fname);
+
+		return;
+
+	} else {
+
+		printf("[%d] building fname...\n", __LINE__);
+
+	}
+
+	sprintf(fname, fname_format, time_label);
+//	sprintf(fname, "files\\test_2.%s.txt", time_label);
 
 
 //	char	*fname = "/test_2.txt";	//=> file not found in the paths
