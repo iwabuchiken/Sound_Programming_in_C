@@ -103,6 +103,28 @@ char** str_split(char* a_str, const char a_delim)
     }
 
     return result;
-}
+
+}//char** str_split(char* a_str, const char a_delim)
+
+char* get_file_name_with_time_label
+(char fname[], char* fname_trunk, char* fname_ext) {
+
+//	char	fname[50];	//=>
+
+	// get: time label
+	char	time_label[14];
+	get_Time_Label(time_label);
+
+	//test
+//	char* fname_format = "files\\test_2.%s.aaaaaaaaaaaaaaaaaaaaaaa.txt";
+//	char* fname_format = "files\\test_2.%s.txt";
+
+	sprintf(fname, "%s.%s.%s", fname_trunk, time_label, fname_ext);
+
+	return fname;
+
+}//char* get_file_name_with_time_label
+
+
 
 #endif /* UTILS_H_ */
