@@ -298,3 +298,19 @@ void stereo_wave_write(STEREO_PCM *pcm, char *file_name)
   
   fclose(fp);
 }
+
+void show_meta_data__mono(MONO_PCM *pcm, char* fname)
+{
+
+//	  pcm1.fs = pcm0.fs; /* 標本化周波数 */
+//	  pcm1.bits = pcm0.bits; /* 量子化精度 */
+//	  pcm1.length = pcm0.length; /* 音データの長さ */
+
+	printf("[%d] <showing meta data>\n", __LINE__);
+
+	printf("file name \t = %s\n", fname);
+
+	printf("pcm1.fs \t= %d\n", pcm->fs);
+	printf("pcm1.bits \t= %d\n", pcm->bits);
+
+}//show_meta_data__mono

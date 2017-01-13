@@ -57,6 +57,7 @@ char* get_Time_Label(char* time_label) {
 
 }
 
+
 char** str_split(char* a_str, const char a_delim)
 {
     char** result    = 0;
@@ -101,6 +102,11 @@ char** str_split(char* a_str, const char a_delim)
         assert(idx == count - 1);
         *(result + idx) = 0;
     }
+
+    //debug
+    printf("[%s:%d] count => %d\n", __FILE__, __LINE__, count);
+//    printf("[%s:%d] count => %d\n", __FILE__, __LINE__, count);
+
 
     return result;
 
